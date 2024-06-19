@@ -26,7 +26,7 @@ const TodoItem = ({ todo, handleDelete, handleCheck, handleEdit }) => {
     };
 
     return (
-        <li key={todo.id} className="flex justify-between items-center p-1 text-red-600">
+        <li key={todo.id} className="flex justify-between items-center p-1">
             {isEditing ? (
                 <>
                     <input
@@ -52,7 +52,9 @@ const TodoItem = ({ todo, handleDelete, handleCheck, handleEdit }) => {
                 </>
             ) : (
                 <>
-                    <span className="w-80 ml-4">{todo.title}</span>
+                    <span className={`w-80 ml-4 ${todo.completed ? 'line-through text-gray-500' : 'text-red-600'}`}>
+                        {todo.title}
+                    </span>
                     <div className="">
                         <button
                             className="border-green-700 bg-green-700 p-1 border-2 rounded-full text-yellow-600 hover:text-blue-500"
