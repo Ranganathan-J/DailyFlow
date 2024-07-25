@@ -8,7 +8,7 @@ const TodoItem = ({ todo, handleDelete, handleCheck, handleEdit }) => {
 
     const handleEditClick = () => {
         setIsEditing(true);
-        setEditingText(todo.title); // Reset editing text to current todo title
+        setEditingText(todo.title); 
     };
 
     const handleTextChange = (e) => {
@@ -22,28 +22,28 @@ const TodoItem = ({ todo, handleDelete, handleCheck, handleEdit }) => {
 
     const handleCancelClick = () => {
         setIsEditing(false);
-        setEditingText(todo.title); // Reset editing text to current todo title
+        setEditingText(todo.title); 
     };
 
     return (
-        <li key={todo.id} className="flex justify-between items-center p-1">
+        <li key={todo.id} className="flex justify-between items-center p-2 sm:p-4 md:p-6">
             {isEditing ? (
                 <>
                     <input
                         type="text"
                         value={editingText}
                         onChange={handleTextChange}
-                        className="w-80 ml-4 px-2 outline-none bg-transparent text-blue-600"
+                        className="w-full md:w-80 ml-2 px-2 outline-none bg-transparent text-blue-600"
                     />
-                    <div className="">
+                    <div className="flex space-x-2">
                         <button
-                            className="border-gray-400 bg-green-700 p-1 border-2 rounded-full text-yellow-600 hover:text-blue-500 px-2"
+                            className="bg-green-700 p-1 md:p-2 border-2 border-green-700 rounded-full text-yellow-600 hover:text-blue-500"
                             onClick={handleSaveClick}
                         >
                             <FontAwesomeIcon icon={faSave} />
                         </button>
                         <button
-                            className="bg-gray-900 border-2 rounded-full p-1 text-rose-700 hover:text-blue-500 focus:outline-none ml-2"
+                            className="bg-gray-900 p-1 md:p-2 border-2 border-gray-900 rounded-full text-rose-700 hover:text-blue-500"
                             onClick={handleCancelClick}
                         >
                             Cancel
@@ -52,24 +52,24 @@ const TodoItem = ({ todo, handleDelete, handleCheck, handleEdit }) => {
                 </>
             ) : (
                 <>
-                    <span className={`w-80 ml-4 ${todo.completed ? 'line-through text-gray-500' : 'text-red-600'}`}>
+                    <span className={`w-full md:w-80 ml-2 ${todo.completed ? 'line-through text-gray-500' : 'text-red-600'}`}>
                         {todo.title}
                     </span>
-                    <div className="">
+                    <div className="flex space-x-2">
                         <button
-                            className="border-green-700 bg-green-700 p-1 border-2 rounded-full text-yellow-600 hover:text-blue-500"
+                            className="bg-green-700 p-1 md:p-2 border-2 border-green-700 rounded-full text-yellow-600 hover:text-blue-500"
                             onClick={() => handleCheck(todo.id)}
                         >
                             <FontAwesomeIcon icon={faCheck} />
                         </button>
                         <button
-                            className="bg-gray-900 border-2 rounded-full p-1 text-rose-700 hover:text-blue-500 focus:outline-none ml-2"
+                            className="bg-gray-900 p-1 md:p-2 border-2 border-gray-900 rounded-full text-rose-700 hover:text-blue-500"
                             onClick={handleEditClick}
                         >
                             <FontAwesomeIcon icon={faPencilAlt} />
                         </button>
                         <button
-                            className="bg-gray-600 p-1 border-2 rounded-full text-red-800 hover:text-red-500 focus:outline-none ml-2"
+                            className="bg-gray-600 p-1 md:p-2 border-2 border-gray-600 rounded-full text-red-800 hover:text-red-500"
                             onClick={() => handleDelete(todo.id)}
                         >
                             <FontAwesomeIcon icon={faTrash} />

@@ -1,6 +1,6 @@
 import React from 'react';
-import TodoItem from './TodoItem'; // Assuming you have a TodoItem component
-import { v4 as uuidv4 } from 'uuid'; // Importing uuid for generating unique ids
+import TodoItem from './TodoItem';
+import { v4 as uuidv4 } from 'uuid'; 
 
 const TodoList = ({ todo, setTodo }) => {
     const handleDelete = (id) => {
